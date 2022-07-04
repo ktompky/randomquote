@@ -1,26 +1,19 @@
 import requests
 import json
-
-user_choice = input("Do you want to get a quote? 'y' or 'n' ")
+import random
 
 
 def getquote():
 
-    r = requests.get('http://quotesondesign.com/api/3.0/api-3.0.json')
+    r = requests.get('https://type.fit/api/quotes')
     data = r.json()
 
-    author = data.get('author')
-    quote = data.get('quote')
+    quote = random.choice(data)
+    print(quote['text'])
+    print(quote['author'])
 
-    print(quote, "\n  \t\t\t- by", author)
 
-
-while user_choice == 'y':
-    getquote()
-    user_choice = input("Would you like another quote? 'y' or 'n' ")
-if user_choice == 'n':
-    print("Okayyyyyy.")
-
+getquote()
 
 
 
