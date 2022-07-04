@@ -2,7 +2,6 @@ import requests
 import json
 import random
 
-
 def getquote():
 
     r = requests.get('https://type.fit/api/quotes')
