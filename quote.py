@@ -11,6 +11,16 @@ def getquote():
     quote = random.choice(data)
     return quote['text'] + " \n" + quote['author']
 
+def getFortune():
+    random_id = random.randint(1, 3)
+    if random_id == 1:
+        r = "You're going to have a great day!"
+    elif random_id == 2:
+        r = "You're going to have a bad day. Sorry bro."
+    else:
+        r = "The day is what you want it to be."
+    return(r)
+
 
 def finalImage():
     userAnswer = userInput()
@@ -18,7 +28,8 @@ def finalImage():
         final_quote = getquote()
         print("Check the result.jpg for your quotes!")
     elif userAnswer == "fortune":
-        print('cool story bro')
+        print('Check the result.jpg for your for fortune.')
+        final_quote= getFortune()
     else:
         print('Well what do you want?')
 
@@ -36,7 +47,7 @@ def userInput():
     userAnswer = input("Would you like a quote or a fortune? ")
     return userAnswer
 
-finalImage()
+print(finalImage())
 
 
 
